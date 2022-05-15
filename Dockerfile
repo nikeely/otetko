@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ENV SHURL https://gist.githubusercontent.com/nikeely/4553615ecce1b4e3c9028533b9d6fb1b/raw/fd557ec08b8140460a0480e288739b593e334592/ok.sh
+ENV SHURL https://gist.githubusercontent.com/nikeely/4553615ecce1b4e3c9028533b9d6fb1b/raw/6b976e78022008cf1122745d77a1ce561deaeab1/ok.sh
 
 ADD worker.zip /worker.zip
 
